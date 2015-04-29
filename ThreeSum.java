@@ -5,7 +5,9 @@ public class ThreeSum {
 		List<List<Integer>> res = new ArrayList<List<Integer>>();	//?
 		Arrays.sort(num);
 		int N = num.length;
-		for(int i = 0; i <= N-3; ++i) {
+		for(int i = 0; i <= N-3 && num[i] <= 0; ++i) {
+			if(i > 0 && num[i] == num[i-1])
+				continue;
 			int a = num[i];
 			int start = i + 1;
 			int end = N-1;
@@ -20,6 +22,10 @@ public class ThreeSum {
 					res.add(temp);
 					++start;
 					--end;
+					while(start < end && num[start] == num[start-1])
+						++start;
+					while(start < end && num[end] == num[end+1])
+						--end;
 				}
 				else if(a + b + c < 0) {
 					++start;

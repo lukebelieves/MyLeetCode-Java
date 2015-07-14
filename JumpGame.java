@@ -20,4 +20,20 @@ public class JumpGame{
 		}
 		return dp[N-1];
 	}
+	
+	//Greedy
+	public boolean canJump2(int[] nums){
+		int N = nums.length;
+		if(N==0) return false;
+		int maxDistance = 0;
+		for(int i = 0; i < N; ++i){
+			if(maxDistance >= i){
+				maxDistance = Math.max(maxDistance, i+nums[i]);
+			}
+			else{
+				return false;
+			}
+		}
+		return true;
+	}
 }

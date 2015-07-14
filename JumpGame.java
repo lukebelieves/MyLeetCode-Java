@@ -30,10 +30,7 @@ public class JumpGame{
 			if(maxDistance >= i){
 				maxDistance = Math.max(maxDistance, i+nums[i]);
 			}
-			else{
-				return false;
-			}
 		}
-		return true;
+		return maxDistance >= N-1;
 	}
 }

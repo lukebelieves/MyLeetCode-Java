@@ -26,10 +26,8 @@ public class JumpGame{
 		int N = nums.length;
 		if(N==0) return false;
 		int maxDistance = 0;
-		for(int i = 0; i < N; ++i){
-			if(maxDistance >= i){
-				maxDistance = Math.max(maxDistance, i+nums[i]);
-			}
+		for(int i = 0; i < N && maxDistance >= i; ++i){
+			maxDistance = Math.max(maxDistance, i+nums[i]);
 		}
 		return maxDistance >= N-1;
 	}

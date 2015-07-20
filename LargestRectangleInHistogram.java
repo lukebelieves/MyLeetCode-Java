@@ -49,7 +49,7 @@ public class LargestRectangleInHistogram{
 		int i = 0;
 		int res = 0;
 		while(i<N){
-			if(stack.isEmpty() || height[i]>=stack.peek()){
+			if(stack.isEmpty() || height[i]>=height[stack.peek()]){
 				stack.push(i++);
 			}
 			else{
